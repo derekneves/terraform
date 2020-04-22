@@ -2,10 +2,11 @@
 
 Terraform scripts to build a VPC within AWS with the following Subnets, Internet gateways, NAT gateways, Security groups, etc
 - 2 public subnets, each in seperate availiblty zones; 1 IGW for each for egress/ingress public routing
-- 2 private subnets, each in seperate availiblty zones; 1 NATGW for outbound internet access
+- 2 private subnets, each in seperate availiblty zones; 1 NATGW for outbound internet access, no ingress
 - 2 local subnets, each in seperate availiblty zones; can only reach internal subnets/vpc supernet
 - EIP for NATGW outbound
 - Route associations for the required subnets
+- security groups: ssh and http/https for ingress traffic to public subnet instances to be created
 - tags
 
 More comments in terraform scripts
