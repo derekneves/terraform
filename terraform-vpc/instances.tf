@@ -5,6 +5,19 @@ resource "aws_instance" "prod-web1" {
     subnet_id = "${aws_subnet.prod-subnet-public1-1a.id}"
 
     security_groups = ["${aws_security_group.inbound-ssh-allowed-restricted.id}", "${aws_security_group.inbound-http_https-allowed.id}"]
+    key_name = "prod-key-pair"
+    
+    provisioner "file" {
+        source = "nginx.sh"
+        destination = "/tmp/nginx.sh"
+    }
+    provisioner "remote-exec" {
+        inline = [
+            "chmod +x /tmp/nginx.sh",
+            "sudo /tmp/nginx.sh"
+        ]
+    }
+
     tags = {
         Name = "prod-web1"
     }
