@@ -18,9 +18,11 @@ resource "aws_nat_gateway" "prod-natgw" {
   }
 }
 
-
+###############
+## EIPs
+###############
 resource "aws_eip" "prod-nat-eip" {
-  vpc = "${aws_vpc.prod-vpc.id}"
+  vpc = true
   tags = {
     Name = "prod-nat-eip"
   }
