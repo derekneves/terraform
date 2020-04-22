@@ -7,7 +7,7 @@ Terraform scripts to build a VPC within AWS with the following Subnets, Internet
 - EIP for NATGW outbound
 - Route associations for the required subnets
 - security groups: ssh and http/https for ingress traffic to public subnet instances to be created
-- 1 ec2 ubuntu instance within public subnet, reachable via ssh from home IP and 80 from anywhere
+- 1 ec2 ubuntu instance within public subnet, reachable via ssh from home IP and ngninx(port 80) from anywhere
 - tags
 
 More comments in terraform scripts
@@ -477,8 +477,8 @@ deco@MacBook-Pro terraform-vpc %
 
 
 
-#### WITH EC2
-
+#### WITH EC2 instance (ngninx port 80)
+```
 deco@MacBook-Pro terraform-vpc % terraform plan -out plan2
 Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
@@ -648,7 +648,9 @@ To perform exactly these actions, run the following command to apply:
     terraform apply "plan2"
 
 deco@MacBook-Pro terraform-vpc %
-
+```
+# login
+```
 deco@MacBook-Pro ~ % ssh-add .ssh/prod-key-pair.pem       
 Identity added: .ssh/prod-key-pair.pem (.ssh/prod-key-pair.pem)
 
@@ -670,4 +672,4 @@ Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-1057-aws x86_64)
 0 updates are security updates.
 
 ubuntu@ip-10-100-1-138:~$ 
-
+```
