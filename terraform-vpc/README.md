@@ -648,6 +648,21 @@ To perform exactly these actions, run the following command to apply:
     terraform apply "plan2"
 
 deco@MacBook-Pro terraform-vpc %
+
+deco@MacBook-Pro terraform-vpc % terraform apply "plan2"  
+aws_instance.prod-web1: Destroying... [id=i-090a8135729256c0d]
+aws_route_table.prod-nat-rt: Modifying... [id=rtb-0185849a6af68859d]
+aws_route_table.prod-nat-rt: Modifications complete after 1s [id=rtb-0185849a6af68859d]
+aws_instance.prod-web1: Still destroying... [id=i-090a8135729256c0d, 10s elapsed]
+aws_instance.prod-web1: Still destroying... [id=i-090a8135729256c0d, 20s elapsed]
+aws_instance.prod-web1: Still destroying... [id=i-090a8135729256c0d, 30s elapsed]
+aws_instance.prod-web1: Destruction complete after 30s
+aws_instance.prod-web1: Creating...
+aws_instance.prod-web1: Still creating... [10s elapsed]
+aws_instance.prod-web1: Still creating... [20s elapsed]
+aws_instance.prod-web1: Provisioning with 'file'...
+aws_instance.prod-web1: Still creating... [30s elapsed]
+aws_instance.prod-web1: Still creating... [40s elapsed]
 ```
 # login
 ```
