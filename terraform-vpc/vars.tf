@@ -1,7 +1,7 @@
 variable "AWS_REGION" {
   default = "us-east-1"
 }
-## default Amazon Linux 2 AMI for our instances
+## default ubuntu AMI for our instances
 variable "AMI" {
     type = "map"
     
