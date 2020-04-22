@@ -18,7 +18,7 @@ resource "aws_security_group" "inbound-ssh-allowed-restricted" {
   }
 }
 
-resource "aws_security_group" "inbound-http/https-allowed" {
+resource "aws_security_group" "inbound-http_https-allowed" {
   vpc_id = "${aws_vpc.prod-vpc.id}"
 
   egress {
@@ -34,7 +34,7 @@ resource "aws_security_group" "inbound-http/https-allowed" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags {
-    Name = "inbound-http/https-allowed"
+    Name = "inbound-http_https-allowed"
   }
 }
 
