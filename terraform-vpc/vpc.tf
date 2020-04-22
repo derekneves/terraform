@@ -1,11 +1,11 @@
 resource "aws_vpc" "prod-vpc" {
-    cidr_block = "10.100.1.0/16"
+    cidr_block = "10.100.0.0/16"
     enable_dns_support = "true" 
     enable_dns_hostnames = "true"
     enable_classiclink = "false"
     instance_tenancy = "default"    
     
-    tags {
+    tags = {
         Name = "prod-vpc"
     }
 }
@@ -19,7 +19,7 @@ resource "aws_subnet" "prod-subnet-public1-1a" {
     cidr_block = "10.100.1.0/24"
     map_public_ip_on_launch = "true"
     availability_zone = "us-east-1a"
-    tags {
+    tags = {
         Name = "prod-subnet-public1-1a"
     }
 }
@@ -29,7 +29,7 @@ resource "aws_subnet" "prod-subnet-public2-1b" {
     cidr_block = "10.100.2.0/24"
     map_public_ip_on_launch = "true" 
     availability_zone = "us-east-1b"
-    tags {
+    tags = {
         Name = "prod-subnet-public2-1b"
     }
 }
@@ -39,7 +39,7 @@ resource "aws_subnet" "prod-subnet-private3-1a" {
     vpc_id = "${aws_vpc.prod-vpc.id}"
     cidr_block = "10.100.3.0/24"
     availability_zone = "us-east-1a"
-    tags {
+    tags = {
         Name = "prod-subnet-private3-1a"
     }
 }
@@ -48,7 +48,7 @@ resource "aws_subnet" "prod-subnet-private4-1b" {
     vpc_id = "${aws_vpc.prod-vpc.id}"
     cidr_block = "10.100.4.0/24"
     availability_zone = "us-east-1b"
-    tags {
+    tags = {
         Name = "prod-subnet-private4-1b"
     }
 }
@@ -58,7 +58,7 @@ resource "aws_subnet" "prod-subnet-local5-1a" {
     vpc_id = "${aws_vpc.prod-vpc.id}"
     cidr_block = "10.100.5.0/24"
     availability_zone = "us-east-1a"
-    tags {
+    tags = {
         Name = "prod-subnet-local5-1a"
     }
 }
@@ -67,7 +67,7 @@ resource "aws_subnet" "prod-subnet-local6-1b" {
     vpc_id = "${aws_vpc.prod-vpc.id}"
     cidr_block = "10.100.6.0/24"
     availability_zone = "us-east-1b"
-    tags {
+    tags = {
         Name = "prod-subnet-local6-1b"
     }
 }

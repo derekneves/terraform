@@ -13,7 +13,7 @@ resource "aws_security_group" "inbound-ssh-allowed-restricted" {
     protocol    = "tcp"
     cidr_blocks = ["174.91.0.0/16"]
   }
-  tags {
+  tags = {
     Name = "inbound-ssh-allowed-restricted"
   }
 }
@@ -33,7 +33,7 @@ resource "aws_security_group" "inbound-http_https-allowed" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags {
+  tags = {
     Name = "inbound-http_https-allowed"
   }
 }

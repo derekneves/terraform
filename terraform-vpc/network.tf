@@ -3,7 +3,7 @@
 ########################
 resource "aws_internet_gateway" "prod-igw" {
   vpc_id = "${aws_vpc.prod-vpc.id}"
-  tags {
+  tags = {
     Name = "prod-igw"
   }
 }
@@ -23,7 +23,7 @@ resource "aws_route_table" "prod-public-rt" {
     gateway_id = "${aws_internet_gateway.prod-igw.id}"
   }
 
-  tags {
+  tags = {
     Name = "prod-public-rt"
   }
 }
